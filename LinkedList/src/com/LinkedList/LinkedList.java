@@ -42,7 +42,7 @@ public class LinkedList {
     }
 
     /*delete the node at the end of the list*/
-    public Node removeLastNode(int value){
+    public Node removeLastNode(){
         if(length == 0){
             System.out.println("Length is null, nothing to remove");
             return null;
@@ -67,6 +67,92 @@ public class LinkedList {
         }
     }
 
+    /*Prepend the Node into the list*/
+    public void prepend(int value){
+        if(length == 0){
+            LinkedList newList = new LinkedList(value);
+        }else{
+            Node newNode = new Node(value);
+            newNode.next = head;
+            head = newNode;
+            length++;
+        }
+    }
+    /*Remove node from first*/
+    public Node removeFirst(){
+        if(length == 0)return null;
+        if(length == 1){
+            head = null;
+            tail = null;
+            length --;
+            return null;
+
+        }else{
+            Node temp = head;
+            head = temp.next;
+            temp.next = null;
+            length --;
+            return temp;
+        }
+    }
+
+    /*Get node from particular index*/
+    public Node getNode(int index){
+        if(length == 0 || index < 0 || index > length){
+            return null;
+        } else{
+            Node temp = head;
+            for(int i=0;i<index;i++){
+                temp = temp.next;
+            }
+            System.out.println("Node from passed index is "+temp.value);
+            return temp;
+        }
+
+    }
+
+    /*Insert node at particular index*/
+    public boolean insertNode(int value, int index){
+        if(index < 0 || index > length)return false;
+        if(length == 1){
+           prepend(value);
+           return true;
+        }else if(length == index){
+            append(value);
+            return true;
+        }
+        Node temp = getNode(index-1);
+        Node newNode = new Node(value);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
+    /*set the node at particular*/
+    public boolean setNode(int index, int value){
+        Node temp = getNode(index);
+        if(temp != null){
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+    /*Delete the node at particular index*/
+    public Node deleteNodeAtIndex(int index){
+        if(index<0 || index>length)return null;
+        if(index == 0){
+            return removeFirst();
+        } else if(index == length){
+            return removeLastNode();
+        }else{
+            Node pre = getNode(index-1);
+            Node temp = getNode(index);
+            pre.next = temp.next;
+            temp.next = null;
+            length--;
+            return temp;
+        }
+    }
     /*Get the head of the list*/
     public void getHead(){
         if(head == null){
