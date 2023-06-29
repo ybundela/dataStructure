@@ -153,6 +153,21 @@ public class LinkedList {
             return temp;
         }
     }
+    /*Reverse the list*/
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node before = null;
+        Node after = temp.next;
+        for(int i=0; i<length;i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+
+        }
+    }
     /*Get the head of the list*/
     public void getHead(){
         if(head == null){

@@ -14,9 +14,10 @@ public class init {
         //createList.deleteNodeAtIndex(3);
        // createList.setNode(2,8);
         //createList.removeFirst();
-       // createList.getHead();
-       // createList.getTail();
-       // createList.getLength();
-       // createList.printList();
+        createList.reverse();
+        createList.getHead();
+        createList.getTail();
+        createList.getLength();
+        createList.printList();
     }
 }
