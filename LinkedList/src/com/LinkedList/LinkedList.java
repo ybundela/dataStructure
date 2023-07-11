@@ -195,4 +195,51 @@ public class LinkedList {
         }
         System.out.println(temp.value);
     }
+
+    /*Find middle Node LeetCode problem*/
+    public Node findMiddleNode(){
+        Node slow = head;
+        Node fast = head.next.next;
+        while(fast.next !=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+
+    /*Has loop in the list LeetCode problem*/
+    public boolean hasLoop(){
+        Node slow = head;
+        Node fast = head.next.next;
+        while(fast.next !=null){
+            slow = slow.next;
+            fast = fast.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*find kth node in list LeetCode problem*/
+    public Node findKthFromEnd(int k){
+        Node slow = head;
+        Node fast = head;
+        for(int i=0;i<k;i++){
+            if(fast == null){
+                return null;
+            }
+            fast = fast.next;
+
+        }
+        while(fast != null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+
+    public void reverseBetween(int m, int n) {
+
+    }
 }
