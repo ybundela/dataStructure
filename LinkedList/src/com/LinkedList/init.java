@@ -34,6 +34,7 @@ public class init {
         //doublyLinkedList.removeFirst();
         //doublyLinkedList.removeLast();
         doublyLinkedList.set(2,7);
+        doublyLinkedList.removeForIndex(1);
         System.out.println("Get node from particular index"+doublyLinkedList.get(2).value);
         doublyLinkedList.getHead();
         doublyLinkedList.getTail();
